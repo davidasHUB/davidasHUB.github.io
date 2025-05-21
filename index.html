@@ -1,129 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1, maximum-scale=1">
+    <title>meujogo</title>
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>..davi</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
- 
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,500,500i,600,600i,700,700i&subset=cyrillic" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Lonely
-  * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-lonely/
-  * Updated: Mar 17 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
-
-<body>
-
-
-  <main id="main">
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about" style="background-color: #201f26;">
-      <div class="container">
-
-        <div class="row no-gutters">
-        
-          <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
-            <div class="content d-flex flex-column justify-content-center">
-              <h3 id="green">--[0]--Davi_Lima--[0]--</h3>
-              
-                <p id="green">
-                    \o/ programador em formação que gosta de fazer jogos é de explorar tecnologias novas  \o/ 
-                </p>
-
-                <br>
-
-                <h3 id="green">
-                    sobre...
-                </h3>
-
-                <p id="green">
-                    eu faço alguns jogos usando lua é posto eles em um forum <a href="https://www.lexaloffle.com/bbs/?uid=67531" target="_blank">[aqui]</a>
-                    eu faço pixel art um estilo de arte relacionada a pc antigos é hardware antigo..
-                    ainda estou praticando mas um dia chego lá...
-
-                    geralmente eu uso o nick de Davi_dash porque sei lá...
-
-                    abaixo algumas coisas que eu fiz 
-                </p>
-
-                <br>
-                
-                <div class="container">
-                    <div class="row-3">
-                        <div class="col-1">
-                            <iframe src="https://www.lexaloffle.com/bbs/widget.php?pid=hohpojido" allowfullscreen width="621" height="513" style="border:none; overflow:hidden"></iframe>
-                        </div>
-    
-                        <div class="col-2">
-                            <iframe src="https://www.lexaloffle.com/bbs/widget.php?pid=sifepubaru" allowfullscreen width="621" height="513" style="border:none; overflow:hidden"></iframe>
-                        </div>
-
-                        <div class="col-3">
-                            <iframe src="https://www.lexaloffle.com/bbs/widget.php?pid=jariputuda" allowfullscreen width="621" height="513" style="border:none; overflow:hidden"></iframe>
-                        </div>
-                       
-                    </div>
-                </div>
-
-             
-              </div>
-            </div><!-- End .content-->
-          </div>
-        </div>
-
+    <!-- Load custom style sheet -->
+    <link rel="stylesheet" type="text/css" href="theme/love.css">
+  </head>
+  <body>
+    <center>
+      <div>
+        <h1>meujogo</h1>
+        <canvas id="loadingCanvas" oncontextmenu="event.preventDefault()" width="800" height="600"></canvas>
+        <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
       </div>
-    </section><!-- End About Section -->
+    </center>
 
-    
-   
+    <script type='text/javascript'>
+      function goFullScreen(){
+            var canvas = document.getElementById("canvas");
+            if(canvas.requestFullScreen)
+                canvas.requestFullScreen();
+            else if(canvas.webkitRequestFullScreen)
+                canvas.webkitRequestFullScreen();
+            else if(canvas.mozRequestFullScreen)
+                canvas.mozRequestFullScreen();
+      }
+      function FullScreenHook(){
+        var canvas = document.getElementById("canvas");
+        canvas.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        canvas.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+      }
+      var loadingContext = document.getElementById('loadingCanvas').getContext('2d');
+      function drawLoadingText(text) {
+        var canvas = loadingContext.canvas;
 
+        loadingContext.fillStyle = "rgb(142, 195, 227)";
+        loadingContext.fillRect(0, 0, canvas.scrollWidth, canvas.scrollHeight);
 
+        loadingContext.font = '2em arial';
+        loadingContext.textAlign = 'center'
+        loadingContext.fillStyle = "rgb( 11, 86, 117 )";
+        loadingContext.fillText(text, canvas.scrollWidth / 2, canvas.scrollHeight / 2);
 
-  <!-- Vendor JS Files -->
-  
+        loadingContext.fillText("Powered By Emscripten.", canvas.scrollWidth / 2, canvas.scrollHeight / 4);
+        loadingContext.fillText("Powered By LÖVE.", canvas.scrollWidth / 2, canvas.scrollHeight / 4 * 3);
+      }
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-  <style>
-    body{
-        background-color: white;
-    }
-    .section-bg {
-    background: linear-gradient(180deg, #201f26 0%, #fff 100%);}
+      window.onload = function () { window.focus(); };
+      window.onclick = function () { window.focus(); };
 
+      window.addEventListener("keydown", function(e) {
+        // space and arrow keys
+        if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+          e.preventDefault();
+        }
+      }, false);
 
-    #green{
-        color:rgb(0,255,0)
-    }
-    
-    #green:hover{
-        color:yellow;
-    }
+      var Module = {
+        arguments: ["./game.love"],
+        INITIAL_MEMORY: 20000000,
+        printErr: console.error.bind(console),
+        canvas: (function() {
+          var canvas = document.getElementById('canvas');
 
-  </style>
-</body>
+          // As a default initial behavior, pop up an alert when webgl context is lost. To make your
+          // application robust, you may want to override this behavior before shipping!
+          // See http://www.khronos.org/registry/webgl/specs/latest/1.0/#5.15.2
+          canvas.addEventListener("webglcontextlost", function(e) { alert('WebGL context lost. You will need to reload the page.'); e.preventDefault(); }, false);
 
+          return canvas;
+        })(),
+        setStatus: function(text) {
+          if (text) {
+            drawLoadingText(text);
+          } else if (Module.remainingDependencies === 0) {
+            document.getElementById('loadingCanvas').style.display = 'none';
+            document.getElementById('canvas').style.visibility = 'visible';
+          }
+        },
+        totalDependencies: 0,
+        remainingDependencies: 0,
+        monitorRunDependencies: function(left) {
+          this.remainingDependencies = left;
+          this.totalDependencies = Math.max(this.totalDependencies, left);
+          Module.setStatus(left ? 'Preparing... (' + (this.totalDependencies-left) + '/' + this.totalDependencies + ')' : 'All downloads complete.');
+        }
+      };
+      Module.setStatus('Downloading...');
+      window.onerror = function(event) {
+        // TODO: do not warn on ok events like simulating an infinite loop or exitStatus
+        Module.setStatus('Exception thrown, see JavaScript console');
+        Module.setStatus = function(text) {
+          if (text) Module.printErr('[post-exception status] ' + text);
+        };
+      };
+
+      var applicationLoad = function(e) {
+        Love(Module);
+      }
+    </script>
+    <script type="text/javascript" src="game.js"></script>
+    <script async type="text/javascript" src="love.js" onload="applicationLoad(this)"></script>
+    <footer>
+      <p>Built with <a href="https://github.com/Davidobot/love.js">love.js</a> <button onclick="goFullScreen();">Go Fullscreen</button><br>Hint: Reload the page if screen is blank</p>
+    </footer>
+  </body>
 </html>
